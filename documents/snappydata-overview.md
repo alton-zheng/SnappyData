@@ -7,16 +7,27 @@
 ## 性能高
 - `SnappyData`性能比`Apache Spark`快`12 - 20`倍
 
-![Home-carousal-illos-03-faster](https://github.com/alton-zheng/SnappyData/tree/master/images/Home-carousal-illos-03-faster.png)
+![Home-carousal-illos-03-faster](../images/Home-carousal-illos-03-faster.png)
 
-![image00](https://github.com/alton-zheng/SnappyData/tree/master/images/image00.png)
+
+![](../images/image00.png)
+
+
+- 454X FASTER THAN CASSANDRA
+
+![image01](../images/image01.png)
+
+
+由于Spark不是数据库，因此在处理更改数据时，有两种使用Spark的选择。可以将数据快照加载到Spark中，然后对其执行查询，并定期重复该过程，或者使用数据库Spark连接器对数据库运行Spark SQL查询。两者都有自己的缺点。在第一种情况下，您将使用已加载一次的陈旧数据。在第二个中，您必须使用连接器将数据从数据库群集移至Spark，这样效率低下。在本练习中，我们针对Spark-Cassandra运行了相同的基准。
+
+我们使用Cassandra 3.9版和最新版本的Spark连接器进行测试。我们使用1的备份因子，并与Spark并置。与在SnappyData中运行相同的工作负载相比，通过Spark Cassandra连接器执行查询的成本要高得多。消除了SnappyData中不必要的反序列化和数据移动，再加上更高的并行度，使SnappyData成为在更改或静态数据集上运行Spark工作负载的绝佳选择。
 
 ## 介绍
 `snappydata`（又称`tibco computedb`）是一个分布式、内存优化的分析数据库。`tibco computedb`为统一分析工作负载提供高吞吐量、低延迟和高并发性。通过在`apache spark`中融合内存混合数据库，它提供了分析查询处理、易变性/事务、对几乎所有大数据源/格式的访问以及流处理，所有这些都在一个统一的集群中。
 
 `SnappyData`的一个常见用例是以交互速度提供对大量数据的分析，而对数据集的预处理很少或根本没有。例如，不需要经常在大型数据集上预聚合/减少或生成多维数据集以进行即席可视分析。这可以通过在内存中灵活地管理数据，使用矢量化优化动态生成代码，并最大化现代多核CPU的潜力。`SnappyData`支持在亚秒时间范围内对大型数据集进行复杂的处理。
 
-![Snappy_intro.1](https://github.com/alton-zheng/SnappyData/tree/master/images/Snappy_intro.1.png)
+![Snappy_intro.1](../images/Snappy_intro.1.png)
 
 - Note: SnapPyData不是一个企业数据仓库（EDW）平台，而是一个高性能的计算和缓存集群，它扩展了传统的EDW和数据池。
 
