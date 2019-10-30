@@ -1,2 +1,1 @@
-# SnappyData
-SnappyData 知识
+的
