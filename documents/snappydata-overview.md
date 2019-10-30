@@ -8,3 +8,4 @@
 - `SnappyData`性能比`Apache Spark`快`20`倍
 
 ![Home-carousal-illos-03-faster](../images/Home-carousal-illos-03-faster.jpg)
+
